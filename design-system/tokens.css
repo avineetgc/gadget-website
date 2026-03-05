@@ -1,0 +1,375 @@
+/* ==========================================================================
+   GADGET CAPITAL MANAGEMENT — Design Tokens
+   Version: 1.0
+   Last updated: 2026-03-05
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   FONT FACE DEFINITIONS
+   Font: Outfit (Geometric Sans-Serif)
+   Using variable font for optimal performance, with static fallbacks
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../assets/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Static weight fallbacks (for browsers without variable font support) */
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit-Static';
+  src: url('../assets/fonts/Outfit-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   ROOT DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+
+:root {
+
+  /* ========================================================================
+     COLOR PALETTE
+     ======================================================================== */
+
+  /* --- Brand Colors (Primary Gradient Stops) --- */
+  --color-navy:         #1c2f4e;   /* Deep navy — primary dark, anchors the brand */
+  --color-dark-teal:    #21717c;   /* Dark teal — secondary depth */
+  --color-teal:         #1e8f80;   /* Teal green — brand signature, logo color */
+  --color-sage:         #74b079;   /* Sage green — warmth, growth */
+  --color-gold:         #d0b75a;   /* Gold/amber — accent, premium signal */
+
+  /* --- Neutral --- */
+  --color-light-gray:   #eaebeb;   /* Backgrounds, borders, subtle dividers */
+  --color-white:        #ffffff;
+  --color-off-white:    #f7f8f8;   /* Slightly warmer background alternative */
+  --color-mid-gray:     #9a9da0;   /* Muted text, placeholders */
+  --color-dark-gray:    #2d3436;   /* Body text on light backgrounds */
+  --color-charcoal:     #1a1d21;   /* Near-black for dark mode backgrounds */
+  --color-black:        #0d0f11;   /* True dark */
+
+  /* --- Semantic Colors --- */
+  --color-positive:     #1e8f80;   /* Success, positive returns — maps to teal */
+  --color-negative:     #c0392b;   /* Error, negative returns */
+  --color-warning:      #d0b75a;   /* Warning states — maps to gold */
+  --color-info:         #21717c;   /* Informational — maps to dark teal */
+
+  /* --- Brand Gradient (Gold top-left → Navy bottom-right) --- */
+  --gradient-brand:     linear-gradient(135deg,
+                          var(--color-gold) 0%,
+                          var(--color-sage) 25%,
+                          var(--color-teal) 50%,
+                          var(--color-dark-teal) 75%,
+                          var(--color-navy) 100%);
+
+  --gradient-brand-horizontal: linear-gradient(90deg,
+                          var(--color-gold) 0%,
+                          var(--color-sage) 25%,
+                          var(--color-teal) 50%,
+                          var(--color-dark-teal) 75%,
+                          var(--color-navy) 100%);
+
+  --gradient-brand-vertical: linear-gradient(180deg,
+                          var(--color-gold) 0%,
+                          var(--color-sage) 25%,
+                          var(--color-teal) 50%,
+                          var(--color-dark-teal) 75%,
+                          var(--color-navy) 100%);
+
+  /* Subtle gradient for backgrounds (low opacity effect via color stops) */
+  --gradient-subtle:    linear-gradient(135deg,
+                          #d0b75a08 0%,
+                          #1e8f8008 50%,
+                          #1c2f4e08 100%);
+
+  /* Text gradient (for accent headings) */
+  --gradient-text:      linear-gradient(90deg,
+                          var(--color-gold) 0%,
+                          var(--color-teal) 50%,
+                          var(--color-navy) 100%);
+
+  /* --- Opacity Variants (for overlays, hover states) --- */
+  --color-navy-10:      rgba(28, 47, 78, 0.10);
+  --color-navy-20:      rgba(28, 47, 78, 0.20);
+  --color-navy-50:      rgba(28, 47, 78, 0.50);
+  --color-navy-80:      rgba(28, 47, 78, 0.80);
+  --color-teal-10:      rgba(30, 143, 128, 0.10);
+  --color-teal-20:      rgba(30, 143, 128, 0.20);
+  --color-gold-10:      rgba(208, 183, 90, 0.10);
+  --color-gold-20:      rgba(208, 183, 90, 0.20);
+
+
+  /* ========================================================================
+     TYPOGRAPHY
+     ======================================================================== */
+
+  /* --- Font Family --- */
+  --font-primary:       'Outfit', 'Outfit-Static', system-ui, -apple-system, sans-serif;
+  --font-mono:          'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* --- Font Weights --- */
+  --weight-thin:        100;
+  --weight-extralight:  200;
+  --weight-light:       300;
+  --weight-regular:     400;
+  --weight-medium:      500;
+  --weight-semibold:    600;
+  --weight-bold:        700;
+  --weight-extrabold:   800;
+  --weight-black:       900;
+
+  /* --- Type Scale (Major Third — 1.250 ratio) ---
+     Base: 16px
+     Designed for institutional readability and generous whitespace */
+  --text-xs:            0.75rem;    /* 12px — Legal disclaimers, footnotes */
+  --text-sm:            0.875rem;   /* 14px — Captions, metadata */
+  --text-base:          1rem;       /* 16px — Body text */
+  --text-md:            1.125rem;   /* 18px — Lead paragraphs */
+  --text-lg:            1.25rem;    /* 20px — Section intros */
+  --text-xl:            1.5rem;     /* 24px — H4 / Card titles */
+  --text-2xl:           1.875rem;   /* 30px — H3 / Section headings */
+  --text-3xl:           2.25rem;    /* 36px — H2 / Page headings */
+  --text-4xl:           3rem;       /* 48px — H1 / Hero subheading */
+  --text-5xl:           3.75rem;    /* 60px — Hero headline (desktop) */
+  --text-6xl:           4.5rem;     /* 72px — Display (large hero, desktop only) */
+
+  /* --- Line Heights --- */
+  --leading-none:       1;
+  --leading-tight:      1.15;       /* Headlines */
+  --leading-snug:       1.3;        /* Subheadlines */
+  --leading-normal:     1.6;        /* Body text */
+  --leading-relaxed:    1.75;       /* Long-form reading */
+  --leading-loose:      2;          /* Legal / dense text */
+
+  /* --- Letter Spacing --- */
+  --tracking-tight:     -0.02em;    /* Large headlines */
+  --tracking-normal:    0;          /* Body */
+  --tracking-wide:      0.05em;     /* Overlines, labels */
+  --tracking-wider:     0.1em;      /* All-caps labels */
+
+
+  /* ========================================================================
+     SPACING
+     ======================================================================== */
+
+  /* --- Base Unit: 4px --- */
+  --space-1:            0.25rem;    /* 4px */
+  --space-2:            0.5rem;     /* 8px */
+  --space-3:            0.75rem;    /* 12px */
+  --space-4:            1rem;       /* 16px */
+  --space-5:            1.25rem;    /* 20px */
+  --space-6:            1.5rem;     /* 24px */
+  --space-8:            2rem;       /* 32px */
+  --space-10:           2.5rem;     /* 40px */
+  --space-12:           3rem;       /* 48px */
+  --space-16:           4rem;       /* 64px */
+  --space-20:           5rem;       /* 80px */
+  --space-24:           6rem;       /* 96px */
+  --space-32:           8rem;       /* 128px */
+
+  /* --- Section Spacing (vertical rhythm for page sections) --- */
+  --section-padding-sm: var(--space-16);    /* 64px — mobile */
+  --section-padding:    var(--space-24);    /* 96px — tablet */
+  --section-padding-lg: var(--space-32);    /* 128px — desktop */
+
+
+  /* ========================================================================
+     LAYOUT
+     ======================================================================== */
+
+  /* --- Container --- */
+  --container-sm:       640px;
+  --container-md:       768px;
+  --container-lg:       1024px;
+  --container-xl:       1200px;
+  --container-max:      1440px;     /* Max content width */
+  --container-padding:  var(--space-6);  /* 24px side gutters */
+
+  /* --- Grid --- */
+  --grid-columns:       12;
+  --grid-gutter:        var(--space-8);  /* 32px column gap */
+
+  /* --- Breakpoints (reference, used in media queries) --- */
+  /* Mobile-first approach:
+     sm:  640px   — Large phones, landscape
+     md:  768px   — Tablets
+     lg:  1024px  — Small desktops
+     xl:  1280px  — Desktops
+     2xl: 1536px  — Large screens */
+
+
+  /* ========================================================================
+     BORDERS & RADIUS
+     ======================================================================== */
+
+  --radius-sm:          4px;
+  --radius-md:          8px;
+  --radius-lg:          12px;
+  --radius-xl:          16px;
+  --radius-2xl:         24px;
+  --radius-full:        9999px;     /* Pill buttons, avatars */
+
+  --border-thin:        1px solid var(--color-light-gray);
+  --border-subtle:      1px solid rgba(234, 235, 235, 0.5);
+
+
+  /* ========================================================================
+     SHADOWS & ELEVATION
+     ======================================================================== */
+
+  --shadow-xs:          0 1px 2px rgba(28, 47, 78, 0.05);
+  --shadow-sm:          0 2px 4px rgba(28, 47, 78, 0.06),
+                        0 1px 2px rgba(28, 47, 78, 0.04);
+  --shadow-md:          0 4px 12px rgba(28, 47, 78, 0.08),
+                        0 2px 4px rgba(28, 47, 78, 0.04);
+  --shadow-lg:          0 8px 24px rgba(28, 47, 78, 0.10),
+                        0 4px 8px rgba(28, 47, 78, 0.05);
+  --shadow-xl:          0 16px 48px rgba(28, 47, 78, 0.12),
+                        0 8px 16px rgba(28, 47, 78, 0.06);
+
+  /* Card hover lift */
+  --shadow-card:        var(--shadow-sm);
+  --shadow-card-hover:  var(--shadow-lg);
+
+
+  /* ========================================================================
+     MOTION & TRANSITIONS
+     ======================================================================== */
+
+  --duration-fast:      150ms;
+  --duration-normal:    250ms;
+  --duration-slow:      400ms;
+  --duration-slower:    600ms;
+
+  --ease-default:       cubic-bezier(0.4, 0, 0.2, 1);    /* Standard */
+  --ease-in:            cubic-bezier(0.4, 0, 1, 1);       /* Accelerate */
+  --ease-out:           cubic-bezier(0, 0, 0.2, 1);       /* Decelerate */
+  --ease-in-out:        cubic-bezier(0.4, 0, 0.2, 1);     /* Smooth */
+
+  --transition-color:   color var(--duration-normal) var(--ease-default);
+  --transition-bg:      background-color var(--duration-normal) var(--ease-default);
+  --transition-shadow:  box-shadow var(--duration-normal) var(--ease-default);
+  --transition-transform: transform var(--duration-normal) var(--ease-out);
+  --transition-all:     all var(--duration-normal) var(--ease-default);
+
+
+  /* ========================================================================
+     Z-INDEX SCALE
+     ======================================================================== */
+
+  --z-base:             0;
+  --z-raised:           10;
+  --z-dropdown:         100;
+  --z-sticky:           200;
+  --z-overlay:          300;
+  --z-modal:            400;
+  --z-toast:            500;
+}
+
+
+/* --------------------------------------------------------------------------
+   DARK MODE OVERRIDES
+   Respects OS preference; can also be toggled with data-theme="dark"
+   -------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg-primary:     var(--color-charcoal);
+    --color-bg-secondary:   var(--color-black);
+    --color-text-primary:   var(--color-white);
+    --color-text-secondary: var(--color-mid-gray);
+    --color-text-muted:     rgba(255, 255, 255, 0.5);
+
+    --border-thin:          1px solid rgba(234, 235, 235, 0.12);
+    --border-subtle:        1px solid rgba(234, 235, 235, 0.06);
+
+    --shadow-sm:            0 2px 4px rgba(0, 0, 0, 0.20);
+    --shadow-md:            0 4px 12px rgba(0, 0, 0, 0.30);
+    --shadow-lg:            0 8px 24px rgba(0, 0, 0, 0.40);
+  }
+}
+
+[data-theme="dark"] {
+  --color-bg-primary:     var(--color-charcoal);
+  --color-bg-secondary:   var(--color-black);
+  --color-text-primary:   var(--color-white);
+  --color-text-secondary: var(--color-mid-gray);
+  --color-text-muted:     rgba(255, 255, 255, 0.5);
+
+  --border-thin:          1px solid rgba(234, 235, 235, 0.12);
+  --border-subtle:        1px solid rgba(234, 235, 235, 0.06);
+
+  --shadow-sm:            0 2px 4px rgba(0, 0, 0, 0.20);
+  --shadow-md:            0 4px 12px rgba(0, 0, 0, 0.30);
+  --shadow-lg:            0 8px 24px rgba(0, 0, 0, 0.40);
+}
+
+
+/* --------------------------------------------------------------------------
+   LIGHT MODE SEMANTIC ALIASES (default)
+   -------------------------------------------------------------------------- */
+
+:root {
+  --color-bg-primary:     var(--color-white);
+  --color-bg-secondary:   var(--color-off-white);
+  --color-bg-tertiary:    var(--color-light-gray);
+  --color-text-primary:   var(--color-navy);
+  --color-text-secondary: var(--color-dark-gray);
+  --color-text-muted:     var(--color-mid-gray);
+  --color-text-inverse:   var(--color-white);
+  --color-text-accent:    var(--color-teal);
+  --color-link:           var(--color-teal);
+  --color-link-hover:     var(--color-dark-teal);
+}

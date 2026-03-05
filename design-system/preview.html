@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gadget Capital — Design System Preview</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    /* Preview-only layout styles */
+    .preview-section {
+      padding: var(--space-12) 0;
+      border-bottom: var(--border-thin);
+    }
+    .preview-section:last-child { border-bottom: none; }
+    .preview-label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--space-4);
+    }
+    .swatch {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: var(--border-thin);
+    }
+    .swatch__color {
+      height: 80px;
+    }
+    .swatch__info {
+      padding: var(--space-3) var(--space-4);
+    }
+    .swatch__name {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+    }
+    .swatch__hex {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-text-muted);
+    }
+    .gradient-preview {
+      height: 100px;
+      border-radius: var(--radius-lg);
+    }
+    .type-stack > * + * { margin-top: var(--space-4); }
+    .spacing-bar {
+      background-color: var(--color-teal-20);
+      border-radius: var(--radius-sm);
+      height: 24px;
+      display: flex;
+      align-items: center;
+      padding-left: var(--space-3);
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-teal);
+    }
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-6);
+    }
+    .shadow-box {
+      background: var(--color-bg-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-4);
+      text-align: center;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: var(--space-4);
+      right: var(--space-4);
+      z-index: var(--z-toast);
+    }
+    .dark-preview-area {
+      background-color: var(--color-navy);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-top: var(--space-6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="btn btn--sm btn--secondary theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+  <div class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-16);">
+
+    <!-- Header -->
+    <div style="margin-bottom: var(--space-16);">
+      <img src="../assets/logos/letterhead.png" alt="Gadget Capital Management" style="height: 64px; margin-bottom: var(--space-6);">
+      <h1>Design System</h1>
+      <p class="text-lead" style="max-width: 600px; margin-top: var(--space-4);">
+        Visual foundation for the Gadget Capital Management website. Tokens, typography, components, and usage guidelines.
+      </p>
+      <div class="gradient-line gradient-line--short" style="margin-top: var(--space-6);"></div>
+    </div>
+
+
+    <!-- ============================================================
+         COLORS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Color Palette — Brand</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #1c2f4e;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Navy</div>
+            <div class="swatch__hex">#1c2f4e</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #21717c;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Dark Teal</div>
+            <div class="swatch__hex">#21717c</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #1e8f80;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Teal</div>
+            <div class="swatch__hex">#1e8f80</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #74b079;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Sage</div>
+            <div class="swatch__hex">#74b079</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #d0b75a;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Gold</div>
+            <div class="swatch__hex">#d0b75a</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #eaebeb;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Light Gray</div>
+            <div class="swatch__hex">#eaebeb</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-8);">Color Palette — Neutrals</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #ffffff; border-bottom: var(--border-thin);"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">White</div>
+            <div class="swatch__hex">#ffffff</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #f7f8f8; border-bottom: var(--border-thin);"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Off-White</div>
+            <div class="swatch__hex">#f7f8f8</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #9a9da0;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Mid Gray</div>
+            <div class="swatch__hex">#9a9da0</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #2d3436;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Dark Gray</div>
+            <div class="swatch__hex">#2d3436</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #1a1d21;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Charcoal</div>
+            <div class="swatch__hex">#1a1d21</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #0d0f11;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Black</div>
+            <div class="swatch__hex">#0d0f11</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-8);">Semantic Colors</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #1e8f80;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Positive</div>
+            <div class="swatch__hex">Teal — #1e8f80</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #c0392b;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Negative</div>
+            <div class="swatch__hex">#c0392b</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #d0b75a;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Warning</div>
+            <div class="swatch__hex">Gold — #d0b75a</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #21717c;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Info</div>
+            <div class="swatch__hex">Dark Teal — #21717c</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         GRADIENTS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Brand Gradient</p>
+      <div class="gradient-preview" style="background: var(--gradient-brand); margin-bottom: var(--space-4);"></div>
+      <p class="text-caption">135deg diagonal — Gold → Sage → Teal → Dark Teal → Navy</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-6);">
+        <div>
+          <div class="gradient-preview" style="background: var(--gradient-brand-horizontal); height: 60px;"></div>
+          <p class="text-caption" style="margin-top: var(--space-2);">Horizontal (90deg)</p>
+        </div>
+        <div>
+          <div class="gradient-preview" style="background: var(--gradient-brand-vertical); height: 60px;"></div>
+          <p class="text-caption" style="margin-top: var(--space-2);">Vertical (180deg, reversed)</p>
+        </div>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-8);">Gradient Text</p>
+      <h2 class="text-gradient">Institutional-Grade Digital Asset Management</h2>
+
+      <p class="preview-label" style="margin-top: var(--space-8);">Gradient Line (Decorative Accent)</p>
+      <div class="gradient-line gradient-line--short"></div>
+    </div>
+
+
+    <!-- ============================================================
+         TYPOGRAPHY
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Typography — Outfit</p>
+      <div class="type-stack">
+        <div>
+          <p class="text-caption">Display — 60px / SemiBold</p>
+          <p class="text-display">Digital Alpha</p>
+        </div>
+        <div>
+          <p class="text-caption">H1 — 48px / SemiBold</p>
+          <h1>Investment Strategy</h1>
+        </div>
+        <div>
+          <p class="text-caption">H2 — 36px / SemiBold</p>
+          <h2>Our Approach</h2>
+        </div>
+        <div>
+          <p class="text-caption">H3 — 30px / Medium</p>
+          <h3>Risk-Adjusted Returns</h3>
+        </div>
+        <div>
+          <p class="text-caption">H4 — 24px / Medium</p>
+          <h4>Portfolio Construction</h4>
+        </div>
+        <div>
+          <p class="text-caption">H5 — 20px / Medium</p>
+          <h5>Market Analysis</h5>
+        </div>
+        <div>
+          <p class="text-caption">Lead — 18px / Light</p>
+          <p class="text-lead">We identify structural inefficiencies across decentralized finance protocols and capture asymmetric returns through systematic, research-driven strategies.</p>
+        </div>
+        <div>
+          <p class="text-caption">Body — 16px / Regular</p>
+          <p>Gadget Capital Management is a digital asset investment firm focused on generating superior risk-adjusted returns across DeFi and blockchain ecosystems. Our approach combines deep protocol-level analysis with institutional-grade risk management.</p>
+        </div>
+        <div>
+          <p class="text-caption">Overline</p>
+          <p class="text-overline">Investment Philosophy</p>
+        </div>
+        <div>
+          <p class="text-caption">Legal — 12px / Regular</p>
+          <p class="text-legal">Past performance is not indicative of future results. This website does not constitute an offer or solicitation. Investment involves risk including possible loss of principal. Gadget Capital Management LLC is a registered investment adviser.</p>
+        </div>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-10);">Font Weight Range</p>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+        <p style="font-weight: 100; font-size: var(--text-lg);">Thin 100 — Gadget Capital Management</p>
+        <p style="font-weight: 200; font-size: var(--text-lg);">ExtraLight 200 — Gadget Capital Management</p>
+        <p style="font-weight: 300; font-size: var(--text-lg);">Light 300 — Gadget Capital Management</p>
+        <p style="font-weight: 400; font-size: var(--text-lg);">Regular 400 — Gadget Capital Management</p>
+        <p style="font-weight: 500; font-size: var(--text-lg);">Medium 500 — Gadget Capital Management</p>
+        <p style="font-weight: 600; font-size: var(--text-lg);">SemiBold 600 — Gadget Capital Management</p>
+        <p style="font-weight: 700; font-size: var(--text-lg);">Bold 700 — Gadget Capital Management</p>
+        <p style="font-weight: 800; font-size: var(--text-lg);">ExtraBold 800 — Gadget Capital Management</p>
+        <p style="font-weight: 900; font-size: var(--text-lg);">Black 900 — Gadget Capital Management</p>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-10);">Metrics & Numbers</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="metric-card">
+          <div class="metric-card__value">$47M</div>
+          <div class="metric-card__label">Assets Under Management</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__value">127%</div>
+          <div class="metric-card__label">Cumulative Return</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__value">2.4</div>
+          <div class="metric-card__label">Sharpe Ratio</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         BUTTONS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Buttons</p>
+
+      <p class="text-caption" style="margin-bottom: var(--space-3);">Primary Actions</p>
+      <div class="btn-row" style="margin-bottom: var(--space-6);">
+        <a href="#" class="btn btn--primary">Request Information</a>
+        <a href="#" class="btn btn--primary btn--lg">Schedule Consultation</a>
+        <a href="#" class="btn btn--primary btn--sm">Learn More</a>
+      </div>
+
+      <p class="text-caption" style="margin-bottom: var(--space-3);">Secondary Actions</p>
+      <div class="btn-row" style="margin-bottom: var(--space-6);">
+        <a href="#" class="btn btn--secondary">View Strategy</a>
+        <a href="#" class="btn btn--ghost">Read Our Research →</a>
+      </div>
+
+      <p class="text-caption" style="margin-bottom: var(--space-3);">Accent & Specialty</p>
+      <div class="btn-row" style="margin-bottom: var(--space-6);">
+        <a href="#" class="btn btn--gold">Investor Login</a>
+      </div>
+
+      <p class="text-caption" style="margin-bottom: var(--space-3);">Inverse (on dark backgrounds)</p>
+      <div class="dark-preview-area">
+        <div class="btn-row">
+          <a href="#" class="btn btn--inverse">Request Information</a>
+          <a href="#" class="btn btn--inverse-outline">Our Approach</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         CARDS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Cards</p>
+
+      <div class="card-grid">
+        <!-- Standard Card -->
+        <div class="card">
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Strategy</p>
+          <h4 style="margin-bottom: var(--space-3);">DeFi Yield Optimization</h4>
+          <p class="text-caption">Multi-strategy yield optimization across lending protocols, liquidity provision, and structured products.</p>
+        </div>
+
+        <!-- Accent Card -->
+        <div class="card card--accent">
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Approach</p>
+          <h4 style="margin-bottom: var(--space-3);">Research-Driven</h4>
+          <p class="text-caption">Deep protocol-level analysis combining on-chain data, smart contract auditing, and quantitative modeling.</p>
+        </div>
+
+        <!-- Standard Card -->
+        <div class="card">
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Risk Management</p>
+          <h4 style="margin-bottom: var(--space-3);">Institutional Controls</h4>
+          <p class="text-caption">Position limits, drawdown controls, and real-time monitoring ensure disciplined capital preservation.</p>
+        </div>
+      </div>
+
+      <p class="preview-label" style="margin-top: var(--space-8);">Dark & Glass Cards</p>
+      <div class="dark-preview-area">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);">
+          <div class="card card--dark">
+            <p class="text-overline" style="color: var(--color-gold); margin-bottom: var(--space-3);">Performance</p>
+            <div class="metric-card__value" style="color: white; margin-bottom: var(--space-2);">+34.2%</div>
+            <p style="color: rgba(255,255,255,0.6); font-size: var(--text-sm);">Net Returns YTD</p>
+          </div>
+          <div class="card card--glass">
+            <p class="text-overline" style="color: var(--color-gold); margin-bottom: var(--space-3);">Advantage</p>
+            <h4 style="color: white; margin-bottom: var(--space-3);">Systematic Edge</h4>
+            <p style="color: rgba(255,255,255,0.7); font-size: var(--text-sm);">Proprietary quantitative models identify yield opportunities across 40+ protocols.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         TEAM CARDS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Team Cards</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); max-width: 600px;">
+        <div class="team-card">
+          <img src="../assets/headshots/Horn-crop.png" alt="Team Member" class="team-card__image">
+          <div class="team-card__name">Partner Name</div>
+          <div class="team-card__role">Managing Partner</div>
+          <p class="team-card__bio">Former portfolio manager at a leading institutional fund with deep expertise in DeFi protocol analysis.</p>
+        </div>
+        <div class="team-card">
+          <img src="../assets/headshots/Powers-crop.png" alt="Team Member" class="team-card__image">
+          <div class="team-card__name">Partner Name</div>
+          <div class="team-card__role">Chief Investment Officer</div>
+          <p class="team-card__bio">Background spanning traditional finance and early-stage crypto investments across multiple market cycles.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         BADGES
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Badges</p>
+      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+        <span class="badge badge--teal">DeFi</span>
+        <span class="badge badge--gold">Active Strategy</span>
+        <span class="badge badge--navy">Institutional</span>
+        <span class="badge badge--teal">Accredited Only</span>
+        <span class="badge badge--gold">New Research</span>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SHADOWS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Elevation / Shadows</p>
+      <div class="shadow-grid">
+        <div class="shadow-box" style="box-shadow: var(--shadow-xs);">
+          <p class="text-caption">XS</p>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-sm);">
+          <p class="text-caption">SM</p>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-md);">
+          <p class="text-caption">MD</p>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-lg);">
+          <p class="text-caption">LG</p>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-xl);">
+          <p class="text-caption">XL</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SPACING
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Spacing Scale (4px base)</p>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 600px;">
+        <div class="spacing-bar" style="width: 16px;">1</div>
+        <div class="spacing-bar" style="width: 32px;">2</div>
+        <div class="spacing-bar" style="width: 48px;">3</div>
+        <div class="spacing-bar" style="width: 64px;">4</div>
+        <div class="spacing-bar" style="width: 96px;">6</div>
+        <div class="spacing-bar" style="width: 128px;">8</div>
+        <div class="spacing-bar" style="width: 192px;">12</div>
+        <div class="spacing-bar" style="width: 256px;">16</div>
+        <div class="spacing-bar" style="width: 320px;">20</div>
+        <div class="spacing-bar" style="width: 384px;">24</div>
+        <div class="spacing-bar" style="width: 512px;">32</div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         BORDER RADIUS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label">Border Radius</p>
+      <div style="display: flex; gap: var(--space-6); align-items: center; flex-wrap: wrap;">
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">SM</span>
+        </div>
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">MD</span>
+        </div>
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">LG</span>
+        </div>
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">XL</span>
+        </div>
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">2XL</span>
+        </div>
+        <div style="width: 64px; height: 64px; background: var(--color-teal-20); border: 1px solid var(--color-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center;">
+          <span class="text-caption">Full</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION VARIANTS
+         ============================================================ -->
+    <div class="preview-section">
+      <p class="preview-label" style="margin-bottom: var(--space-8);">Section Background Variants</p>
+    </div>
+
+  </div><!-- end .container -->
+
+  <!-- Full-width section demos -->
+  <div class="section section--muted">
+    <div class="container">
+      <p class="text-overline" style="margin-bottom: var(--space-3);">section--muted</p>
+      <h3>Off-White Background Section</h3>
+      <p style="margin-top: var(--space-3);">Used for alternating sections to create visual rhythm without strong contrast.</p>
+    </div>
+  </div>
+
+  <div class="section section--dark">
+    <div class="container">
+      <p class="text-overline" style="margin-bottom: var(--space-3);">section--dark</p>
+      <h3>Navy Background Section</h3>
+      <p style="margin-top: var(--space-3);">The primary dark variant, used for emphasis sections like the value proposition or key metrics.</p>
+      <div style="display: flex; gap: var(--space-4); margin-top: var(--space-6);">
+        <a href="#" class="btn btn--inverse">Primary CTA</a>
+        <a href="#" class="btn btn--inverse-outline">Secondary CTA</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--gradient">
+    <div class="container">
+      <p class="text-overline" style="color: rgba(255,255,255,0.7); margin-bottom: var(--space-3);">section--gradient</p>
+      <h3>Brand Gradient Section</h3>
+      <p style="margin-top: var(--space-3);">Used sparingly — for the hero or a single high-impact section. Carries the full brand gradient.</p>
+      <div style="display: flex; gap: var(--space-4); margin-top: var(--space-6);">
+        <a href="#" class="btn btn--inverse">Request Information</a>
+        <a href="#" class="btn btn--inverse-outline">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo variants -->
+  <div class="section">
+    <div class="container">
+      <p class="preview-label" style="margin-bottom: var(--space-6);">Logo Variants</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div style="background: var(--color-navy); padding: var(--space-8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+          <img src="../assets/logos/logo_light.jpg" alt="Logo Light" style="height: 80px; border-radius: var(--radius-md);">
+        </div>
+        <div style="background: var(--color-light-gray); padding: var(--space-8); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+          <img src="../assets/logos/logo_dark.jpg" alt="Logo Dark" style="height: 80px; border-radius: var(--radius-md);">
+        </div>
+        <div style="background: white; padding: var(--space-8); border-radius: var(--radius-lg); border: var(--border-thin); display: flex; align-items: center; justify-content: center;">
+          <img src="../assets/logos/logo_bw.jpg" alt="Logo BW" style="height: 80px; border-radius: var(--radius-md);">
+        </div>
+      </div>
+      <div style="display: flex; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <span class="text-caption">On dark backgrounds</span>
+        <span class="text-caption">On light backgrounds</span>
+        <span class="text-caption">Monochrome</span>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+
+</body>
+</html>
