@@ -270,11 +270,7 @@
   transform: translateY(-2px);
 }
 
-/* Card without hover effect (static) */
-.card--static {
-  composes: card;
-}
-
+/* Card without hover effect (static) — use with .card class: "card card--static" */
 .card--static:hover {
   box-shadow: none;
   transform: none;

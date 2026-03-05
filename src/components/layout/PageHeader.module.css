@@ -1,0 +1,4 @@
+.header {
+  padding-top: calc(72px + var(--space-16));
+  padding-bottom: var(--space-16);
+}

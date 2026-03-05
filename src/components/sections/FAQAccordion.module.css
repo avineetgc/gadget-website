@@ -1,0 +1,55 @@
+.accordionGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  border-bottom: var(--border-thin);
+}
+
+.item:first-child {
+  border-top: var(--border-thin);
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  text-align: left;
+  gap: var(--space-4);
+}
+
+.question {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+}
+
+.icon {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-light);
+  color: var(--color-teal);
+  transition: transform var(--duration-normal) var(--ease-default);
+  flex-shrink: 0;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+.content {
+  padding: 0 0 var(--space-5) 0;
+}
+
+.content p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+}

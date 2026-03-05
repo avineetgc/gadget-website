@@ -1,0 +1,18 @@
+/* ==========================================================================
+   GADGET CAPITAL — Global Overrides
+   Font variable remap for next/font/local integration
+   ========================================================================== */
+
+:root {
+  --font-primary: var(--font-outfit), system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth page transitions */
+main {
+  min-height: 100vh;
+}
+
+/* Offset fixed nav */
+html {
+  scroll-padding-top: 80px;
+}

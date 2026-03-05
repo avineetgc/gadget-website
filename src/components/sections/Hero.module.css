@@ -1,0 +1,38 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+}
+
+.headline {
+  color: var(--color-white);
+  margin-bottom: var(--space-6);
+  max-width: 800px;
+}
+
+.subheadline {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin-bottom: var(--space-10);
+}
+
+.ctaRow {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 85vh;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+  }
+
+  .ctaRow a {
+    text-align: center;
+  }
+}
